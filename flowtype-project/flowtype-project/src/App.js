@@ -1,23 +1,48 @@
 // @flow
 import React, {Component} from 'react';
-import './App.css';
 
 class App extends Component {
-    test = (a: string, b: string) => {
+    testFlow = (a: string, b: string) => {
         console.log(a, b);
+    };
+
+    testOptionalTypes = (a?: string = 'test', b: number) => {
+        console.log(a, b);
+    };
+
+    testLiteralTypes = (message: 'info' | 'warning' | 'error') => {
+        console.log(message);
+    };
+
+    testMixedTypes = (value: mixed) => {
+        // console.log("" + value); ERROR
+        if(typeof value === 'string'){
+            console.log('' + value);
+        } else {
+            console.log(value);
+        }
+    };
+
+    testMaybeTypes = (value: ?number) => {
+        // console.log(value * 2); ERROR
+        if (value != null) {
+            return value * 2;
+        }
+    };
+
+    testFunctionTypes = (message: ?string): ?string => {
+        return message;
     };
 
     render() {
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                {this.test(1, '2')}
+            <div>
+                {this.testFlow('1', '2')}
+                {this.testOptionalTypes(undefined, 1)}
+                {this.testLiteralTypes('info')}
+                {this.testMixedTypes(1)}
+                {this.testMaybeTypes(undefined)}
+                {this.testFunctionTypes('test')}
             </div>
         );
     }
