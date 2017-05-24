@@ -33,7 +33,6 @@ const Tweet = db.define('tweet', {
 User.hasMany(Tweet);
 Tweet.belongsTo(User);
 
-// Testdata
 db.sync({force: true}).then(() => {
     for(let i = 0; i < 10; i++){
         User.create({
@@ -47,3 +46,5 @@ db.sync({force: true}).then(() => {
         });
     }
 });
+
+module.exports = db;
