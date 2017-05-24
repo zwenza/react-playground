@@ -29,6 +29,12 @@ const User = new graphql.GraphQLObjectType({
                 resolve(user) {
                     return user.email
                 }
+            },
+            tweets: {
+                type: new graphql.GraphQLList(Tweet),
+                resolve(user) {
+                    return user.getTweets();
+                }
             }
         }
     }
@@ -51,6 +57,12 @@ const Tweet = new graphql.GraphQLObjectType({
                     return tweet.message
                 }
             },
+            user: {
+                type: User,
+                resolve(tweet) {
+                    return tweet.getUser()
+                }
+            }
         }
     }
 });
@@ -72,6 +84,20 @@ const Query = new graphql.GraphQLObjectType({
                 },
                 resolve(root, args) {
                     return db.models.user.findAll({where: args});
+                }
+            },
+            tweets: {
+                type: new graphql.GraphQLList(Tweet),
+                args: {
+                    id: {
+                        type: graphql.GraphQLInt
+                    },
+                    message: {
+                        type: graphql.GraphQLString
+                    }
+                },
+                resolve(root, args) {
+                    return db.models.tweet.findAll({where: args});
                 }
             }
         }
