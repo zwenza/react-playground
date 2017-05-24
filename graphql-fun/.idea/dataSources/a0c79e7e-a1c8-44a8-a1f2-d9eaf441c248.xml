@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="graphql@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.1">
+    <root id="1"/>
+    <database id="2" parent="1" name="graphql">
+      <ObjectId>16393</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-24.22:47:08.328</IntrospectionTimestamp>
+      <IntrospectionStateNumber>875</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12381</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="tweets_id_seq">
+      <ObjectId>16429</ObjectId>
+      <StateNumber>875</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="users_id_seq">
+      <ObjectId>16418</ObjectId>
+      <StateNumber>874</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="11" parent="3" name="tweets">
+      <ObjectId>16431</ObjectId>
+      <StateNumber>875</StateNumber>
+    </table>
+    <table id="12" parent="3" name="users">
+      <ObjectId>16420</ObjectId>
+      <StateNumber>875</StateNumber>
+    </table>
+    <column id="13" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>875</StateNumber>
+      <SequenceName>tweets_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;tweets_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="14" parent="11" name="message">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>875</StateNumber>
+    </column>
+    <column id="15" parent="11" name="createdAt">
+      <Position>3</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>875</StateNumber>
+    </column>
+    <column id="16" parent="11" name="updatedAt">
+      <Position>4</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>875</StateNumber>
+    </column>
+    <column id="17" parent="11" name="userId">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>875</StateNumber>
+    </column>
+    <index id="18" parent="11" name="tweets_pkey">
+      <ObjectId>16435</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="19" parent="11" name="tweets_pkey">
+      <ObjectId>16436</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>tweets_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="20" parent="11" name="tweets_userId_fkey">
+      <ObjectId>16437</ObjectId>
+      <ColNames>userId</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="21" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+      <SequenceName>users_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="22" parent="12" name="firstName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+    </column>
+    <column id="23" parent="12" name="lastName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+    </column>
+    <column id="24" parent="12" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+    </column>
+    <column id="25" parent="12" name="createdAt">
+      <Position>5</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+    </column>
+    <column id="26" parent="12" name="updatedAt">
+      <Position>6</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>874</StateNumber>
+    </column>
+    <index id="27" parent="12" name="users_pkey">
+      <ObjectId>16427</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="12" name="users_pkey">
+      <ObjectId>16428</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
