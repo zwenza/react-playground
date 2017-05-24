@@ -9,6 +9,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "cors": "^2.8.3",
     "express": "^4.15.3",
     "express-graphql": "^0.6.5",
     "faker": "^4.1.0",

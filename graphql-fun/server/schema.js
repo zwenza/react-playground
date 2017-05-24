@@ -67,6 +67,36 @@ const Tweet = new graphql.GraphQLObjectType({
     }
 });
 
+const Mutation = new graphql.GraphQLObjectType({
+    name: 'Mutation',
+    description: 'Functions to create some stuff.',
+    fields: () => {
+        return {
+            addPerson: {
+                type: User,
+                args: {
+                    firstName: {
+                        type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+                    },
+                    lastName: {
+                        type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+                    },
+                    email: {
+                        type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+                    }
+                },
+                resolve(root, args) {
+                    return db.models.user.create({
+                        firstName: args.firstName,
+                        lastName: args.lastName,
+                        email: args.email.toLowerCase()
+                    })
+                }
+            }
+        }
+    }
+});
+
 const Query = new graphql.GraphQLObjectType({
     name: 'Query',
     description: 'This is our root query',
@@ -105,7 +135,8 @@ const Query = new graphql.GraphQLObjectType({
 });
 
 const Schema = new graphql.GraphQLSchema({
-    query: Query
+    query: Query,
+    mutation: Mutation
 });
 
 module.exports = Schema;
