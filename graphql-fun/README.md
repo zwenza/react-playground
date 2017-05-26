@@ -2,6 +2,15 @@
 
 This is just a small app i build to try out GraphQL!
 
+## i am using...
+
+* GraphQL - [github.com/graphql/graphql-js](https://github.com/graphql/graphql-js)
+* Express - [github.com/expressjs/express](https://github.com/expressjs/express)
+* Sequelize - [github.com/sequelize/sequelize](https://github.com/sequelize/sequelize)
+* React - [github.com/facebook/react](https://github.com/facebook/react)
+* React Apollo - [github.com/apollographql/react-apollo](https://github.com/apollographql/react-apollo)
+* Styled Components - [github.com/styled-components/styled-components](https://github.com/styled-components/styled-components)
+
 ## getting started
 
 ### server
