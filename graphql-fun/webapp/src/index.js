@@ -5,8 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo';
 
-import './index.css';
-
 const networkInterface = createNetworkInterface({uri: 'http://localhost:4000/api'});
 const client = new ApolloClient({networkInterface: networkInterface});
 
