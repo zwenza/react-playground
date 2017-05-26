@@ -1,29 +1,29 @@
 import React, {Component} from "react";
-import {gql, graphql} from "react-apollo";
+import { Title, Meta } from "./styles/Typography";
 
-const UserListQuery = gql`
-    query { 
-        users { 
-            firstName, 
-            lastName 
-        } 
-    }
+import styled from "styled-components";
+
+import Feed from "./tweets/Feed";
+import Copyright from "./various/Copyright";
+
+const AppContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 `;
-
-const UserList = ({data: {loading, users}}) => {
-    return (
-        <div>{loading ? '' : users.map((user, id) => {
-            return <div key={id}>Hello {user.firstName}!</div>
-        })}</div>
-    )
-};
-
-const UserListData = graphql(UserListQuery)(UserList);
 
 class App extends Component {
     render() {
         return (
-                <UserListData/>
+            <AppContainer>
+                <Title>Opinions</Title>
+                <Meta>A TWITTER CLONE</Meta>
+                <br/>
+                <Feed/>
+                <Copyright/>
+            </AppContainer>
         );
     }
 }
