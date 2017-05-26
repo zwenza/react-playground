@@ -4,6 +4,7 @@ export const theme = {
 
 export const globals = `
     @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+    @import url('https://fonts.googleapis.com/css?family=Gentium+Basic');
 
     body {
         background-color: #B2DFDB;    

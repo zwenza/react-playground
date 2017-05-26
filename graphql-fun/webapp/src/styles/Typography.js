@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Text = styled.div`
     font-size: 10x;
-    font-family: 'Comfortaa';
+    font-family: 'Gentium Basic';
     color: #000000;
 `;
 
@@ -12,7 +12,7 @@ export const Title = styled(Text)`
     color: #FFFFFF;
 `;
 
-export const Meta = styled(Text)`
+export const Meta = styled(Title)`
     font-size: 8px;
     color: #FFFFFF;
 `;
